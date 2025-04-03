@@ -1,174 +1,940 @@
-<!DOCTYPE HTML>
-<!--
-	Spectral by HTML5 UP
-	html5up.net | @ajlkn
-	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
--->
-<html>
-	<head>
-		<title>Spectral by HTML5 UP</title>
-		<meta charset="utf-8" />
-		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
-		<link rel="stylesheet" href="assets/css/main.css" />
-		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
-	</head>
-	<body class="landing is-preload">
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Recycle Right Vienna | Waste Separation Guide</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#4CAF50',
+                        secondary: '#2E7D32',
+                        accent: '#8BC34A',
+                        dark: '#263238',
+                        light: '#F1F8E9'
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        .gallery-item {
+            transition: all 0.3s ease;
+        }
+        .gallery-item:hover {
+            transform: scale(1.03);
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+        }
+        .map-container {
+            height: 400px;
+            width: 100%;
+            border-radius: 1rem;
+            overflow: hidden;
+        }
+        .tab-content {
+            display: none;
+        }
+        .tab-content.active {
+            display: block;
+            animation: fadeIn 0.5s;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        .social-feed {
+            scrollbar-width: thin;
+            scrollbar-color: #4CAF50 transparent;
+        }
+        .social-feed::-webkit-scrollbar {
+            height: 6px;
+        }
+        .social-feed::-webkit-scrollbar-thumb {
+            background-color: #4CAF50;
+            border-radius: 3px;
+        }
+    </style>
+</head>
+<body class="bg-light font-sans text-dark">
+    <!-- Navigation -->
+    <nav class="bg-white shadow-md fixed w-full z-10">
+        <div class="max-w-6xl mx-auto px-4">
+            <div class="flex justify-between items-center h-16">
+                <div class="flex items-center">
+                    <div class="flex-shrink-0 flex items-center">
+                        <i class="fas fa-recycle text-primary text-2xl mr-2"></i>
+                        <span class="text-xl font-bold text-primary">RecycleRightVienna</span>
+                    </div>
+                </div>
+                <div class="hidden md:block">
+                    <div class="ml-10 flex items-baseline space-x-4">
+                        <a href="#home" class="px-3 py-2 rounded-md text-sm font-medium bg-primary text-white">Home</a>
+                        <a href="#about" class="px-3 py-2 rounded-md text-sm font-medium hover:bg-accent hover:text-dark transition">About</a>
+                        <a href="#resources" class="px-3 py-2 rounded-md text-sm font-medium hover:bg-accent hover:text-dark transition">Resources</a>
+                        <a href="#map" class="px-3 py-2 rounded-md text-sm font-medium hover:bg-accent hover:text-dark transition">Recycling Map</a>
+                        <a href="#target" class="px-3 py-2 rounded-md text-sm font-medium hover:bg-accent hover:text-dark transition">For You</a>
+                        <a href="#contact" class="px-3 py-2 rounded-md text-sm font-medium hover:bg-accent hover:text-dark transition">Contact</a>
+                    </div>
+                </div>
+                <div class="md:hidden">
+                    <button id="mobile-menu-button" class="inline-flex items-center justify-center p-2 rounded-md text-dark hover:text-primary focus:outline-none">
+                        <i class="fas fa-bars text-xl"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+        <!-- Mobile menu -->
+        <div id="mobile-menu" class="md:hidden hidden bg-white shadow-lg rounded-b-lg">
+            <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
+                <a href="#home" class="block px-3 py-2 rounded-md text-base font-medium bg-primary text-white">Home</a>
+                <a href="#about" class="block px-3 py-2 rounded-md text-base font-medium hover:bg-accent">About</a>
+                <a href="#resources" class="block px-3 py-2 rounded-md text-base font-medium hover:bg-accent">Resources</a>
+                <a href="#map" class="block px-3 py-2 rounded-md text-base font-medium hover:bg-accent">Recycling Map</a>
+                <a href="#target" class="block px-3 py-2 rounded-md text-base font-medium hover:bg-accent">For You</a>
+                <a href="#contact" class="block px-3 py-2 rounded-md text-base font-medium hover:bg-accent">Contact</a>
+            </div>
+        </div>
+    </nav>
 
-		<!-- Page Wrapper -->
-			<div id="page-wrapper">
+    <!-- Hero Section -->
+    <section id="home" class="pt-24 pb-16 md:pt-28 md:pb-20 lg:pt-32 lg:pb-24 bg-gradient-to-r from-primary to-secondary text-white">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="md:flex md:items-center md:justify-between">
+                <div class="md:w-1/2 mb-10 md:mb-0">
+                    <h1 class="text-4xl md:text-5xl font-bold leading-tight mb-6">
+                        Recycle Right in Vienna
+                    </h1>
+                    <p class="text-xl mb-8 leading-relaxed">
+                        Join our community effort to improve waste separation and make Vienna cleaner for everyone!
+                    </p>
+                    <div class="flex flex-wrap gap-4">
+                        <a href="#resources" class="px-6 py-3 bg-white text-primary font-medium rounded-lg hover:bg-opacity-90 transition shadow-lg flex items-center">
+                            <i class="fas fa-download mr-2"></i> Get the Guide
+                        </a>
+                        <a href="#map" class="px-6 py-3 bg-accent text-dark font-medium rounded-lg hover:bg-opacity-90 transition shadow-lg flex items-center">
+                            <i class="fas fa-map-marker-alt mr-2"></i> Find Bins Near You
+                        </a>
+                    </div>
+                </div>
+                <div class="md:w-1/2 flex justify-center">
+                    <img src="https://images.unsplash.com/photo-1606787366850-de6330128bfc?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80" 
+                         alt="Recycling in Vienna" 
+                         class="rounded-lg shadow-2xl w-full max-w-md border-4 border-white">
+                </div>
+            </div>
+        </div>
+    </section>
 
-				<!-- Header -->
-					<header id="header" class="alt">
-						<h1><a href="index.html">Spectral</a></h1>
-						<nav id="nav">
-							<ul>
-								<li class="special">
-									<a href="#menu" class="menuToggle"><span>Menu</span></a>
-									<div id="menu">
-										<ul>
-											<li><a href="index.html">Home</a></li>
-											<li><a href="generic.html">Generic</a></li>
-											<li><a href="elements.html">Elements</a></li>
-											<li><a href="#">Sign Up</a></li>
-											<li><a href="#">Log In</a></li>
-										</ul>
-									</div>
-								</li>
-							</ul>
-						</nav>
-					</header>
+    <!-- Problem Statement -->
+    <section class="py-16 bg-white">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="bg-light rounded-xl p-8 shadow-lg">
+                <div class="flex flex-col md:flex-row items-center">
+                    <div class="md:w-1/3 mb-8 md:mb-0 flex justify-center">
+                        <div class="bg-primary text-white rounded-full p-6 w-64 h-64 flex flex-col items-center justify-center">
+                            <i class="fas fa-exclamation-triangle text-5xl mb-4"></i>
+                            <p class="text-center text-xl font-bold">42%</p>
+                            <p class="text-center">of recyclables in Vienna are incorrectly sorted</p>
+                        </div>
+                    </div>
+                    <div class="md:w-2/3 md:pl-10">
+                        <h2 class="text-3xl font-bold mb-6 text-dark">The Problem We're Solving</h2>
+                        <p class="text-lg mb-4">
+                            Vienna's excellent waste management system can be confusing, especially for international residents. 
+                            Language barriers and different recycling practices from home countries lead to contamination of recyclables, 
+                            making the whole process less effective and more expensive.
+                        </p>
+                        <p class="text-lg">
+                            Our project bridges this gap by providing clear, accessible information in English to help everyone 
+                            contribute to Vienna's sustainability goals.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
-				<!-- Banner -->
-					<section id="banner">
-						<div class="inner">
-							<h2>Spectral</h2>
-							<p>Another fine responsive<br />
-							site template freebie<br />
-							crafted by <a href="http://html5up.net">HTML5 UP</a>.</p>
-							<ul class="actions special">
-								<li><a href="#" class="button primary">Activate</a></li>
-							</ul>
-						</div>
-						<a href="#one" class="more scrolly">Learn More</a>
-					</section>
+    <!-- About Section -->
+    <section id="about" class="py-16 bg-gray-50">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 class="text-3xl font-bold text-center mb-12">About Our Project</h2>
+            <div class="grid md:grid-cols-3 gap-8">
+                <div class="bg-white p-6 rounded-xl shadow-md hover:shadow-lg transition">
+                    <div class="text-primary mb-4">
+                        <i class="fas fa-heart text-4xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">Our Mission</h3>
+                    <p>
+                        To reduce contamination in Vienna's recycling streams by providing clear guidelines 
+                        and education in multiple languages, starting with English.
+                    </p>
+                </div>
+                <div class="bg-white p-6 rounded-xl shadow-md hover:shadow-lg transition">
+                    <div class="text-primary mb-4">
+                        <i class="fas fa-users text-4xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">Our Approach</h3>
+                    <p>
+                        Community-driven solutions developed with input from international residents, 
+                        local waste management experts, and sustainability advocates.
+                    </p>
+                </div>
+                <div class="bg-white p-6 rounded-xl shadow-md hover:shadow-lg transition">
+                    <div class="text-primary mb-4">
+                        <i class="fas fa-bullseye text-4xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">Our Goals</h3>
+                    <p>
+                        1. Reduce recycling contamination by 30% in target neighborhoods
+                        <br>2. Engage 5,000 international residents in proper waste sorting
+                        <br>3. Expand to other languages by 2024
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
 
-				<!-- One -->
-					<section id="one" class="wrapper style1 special">
-						<div class="inner">
-							<header class="major">
-								<h2>Arcu aliquet vel lobortis ata nisl<br />
-								eget augue amet aliquet nisl cep donec</h2>
-								<p>Aliquam ut ex ut augue consectetur interdum. Donec amet imperdiet eleifend<br />
-								fringilla tincidunt. Nullam dui leo Aenean mi ligula, rhoncus ullamcorper.</p>
-							</header>
-							<ul class="icons major">
-								<li><span class="icon fa-gem major style1"><span class="label">Lorem</span></span></li>
-								<li><span class="icon fa-heart major style2"><span class="label">Ipsum</span></span></li>
-								<li><span class="icon solid fa-code major style3"><span class="label">Dolor</span></span></li>
-							</ul>
-						</div>
-					</section>
+    <!-- Resources Section -->
+    <section id="resources" class="py-16 bg-white">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 class="text-3xl font-bold text-center mb-4">Educational Resources</h2>
+            <p class="text-center text-lg mb-12 max-w-3xl mx-auto">
+                Download our comprehensive guides, infographics, and FAQs to master Vienna's waste separation system
+            </p>
 
-				<!-- Two -->
-					<section id="two" class="wrapper alt style2">
-						<section class="spotlight">
-							<div class="image"><img src="images/pic01.jpg" alt="" /></div><div class="content">
-								<h2>Magna primis lobortis<br />
-								sed ullamcorper</h2>
-								<p>Aliquam ut ex ut augue consectetur interdum. Donec hendrerit imperdiet. Mauris eleifend fringilla nullam aenean mi ligula.</p>
-							</div>
-						</section>
-						<section class="spotlight">
-							<div class="image"><img src="images/pic02.jpg" alt="" /></div><div class="content">
-								<h2>Tortor dolore feugiat<br />
-								elementum magna</h2>
-								<p>Aliquam ut ex ut augue consectetur interdum. Donec hendrerit imperdiet. Mauris eleifend fringilla nullam aenean mi ligula.</p>
-							</div>
-						</section>
-						<section class="spotlight">
-							<div class="image"><img src="images/pic03.jpg" alt="" /></div><div class="content">
-								<h2>Augue eleifend aliquet<br />
-								sed condimentum</h2>
-								<p>Aliquam ut ex ut augue consectetur interdum. Donec hendrerit imperdiet. Mauris eleifend fringilla nullam aenean mi ligula.</p>
-							</div>
-						</section>
-					</section>
+            <div class="flex flex-col md:flex-row gap-8 mb-12">
+                <div class="md:w-3/5">
+                    <div class="bg-light rounded-xl overflow-hidden shadow-lg">
+                        <div class="flex">
+                            <button onclick="openTab('guide')" class="tab-button active py-3 px-6 bg-primary text-white font-medium">
+                                <i class="fas fa-book mr-2"></i> Guidebook
+                            </button>
+                            <button onclick="openTab('infographics')" class="tab-button py-3 px-6 bg-gray-200 hover:bg-gray-300 font-medium">
+                                <i class="fas fa-chart-pie mr-2"></i> Infographics
+                            </button>
+                            <button onclick="openTab('faq')" class="tab-button py-3 px-6 bg-gray-200 hover:bg-gray-300 font-medium">
+                                <i class="fas fa-question-circle mr-2"></i> FAQs
+                            </button>
+                        </div>
+                        <div class="p-6">
+                            <div id="guide" class="tab-content active">
+                                <h3 class="text-2xl font-bold mb-4 text-primary">Vienna Waste Separation Guide</h3>
+                                <p class="mb-4">
+                                    Our comprehensive 32-page guide explains Vienna's waste separation system in clear English, 
+                                    with practical examples and illustrations.
+                                </p>
+                                <div class="flex flex-wrap items-center gap-4 mt-6">
+                                    <a href="#" class="px-5 py-2 bg-primary text-white rounded-lg hover:bg-secondary transition flex items-center">
+                                        <i class="fas fa-file-pdf mr-2"></i> Download PDF (3.2MB)
+                                    </a>
+                                    <a href="#" class="px-5 py-2 bg-gray-200 rounded-lg hover:bg-gray-300 transition flex items-center">
+                                        <i class="fas fa-book-open mr-2"></i> View Online
+                                    </a>
+                                </div>
+                            </div>
+                            <div id="infographics" class="tab-content">
+                                <h3 class="text-2xl font-bold mb-4 text-primary">Visual Learning Tools</h3>
+                                <div class="grid grid-cols-2 md:grid-cols-3 gap-4">
+                                    <div class="gallery-item cursor-pointer">
+                                        <img src="https://mamabearskitchen.com/wp-content/uploads/2022/04/can-you-recycle-pizza-boxes.jpg" 
+                                             alt="Paper Recycling Guide" 
+                                             class="rounded-lg w-full h-32 object-cover">
+                                        <p class="mt-2 text-sm font-medium">Paper & Cardboard</p>
+                                    </div>
+                                    <div class="gallery-item cursor-pointer">
+                                        <img src="https://assets-global.website-files.com/63f7b1a2b1bf7a6ce6fb22f9/64087f2b0b1d1a183deef3db_plastics%20recycling%20symbols.jpg" 
+                                             alt="Plastic Recycling Guide" 
+                                             class="rounded-lg w-full h-32 object-cover">
+                                        <p class="mt-2 text-sm font-medium">Plastic Types</p>
+                                    </div>
+                                    <div class="gallery-item cursor-pointer">
+                                        <img src="https://www.foodandwine.com/thmb/5u19QzfPAVWnQ0x-Xob_kp4L7GQ=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/glass-recycling-FT-BLOG0522-8de1d9822ae9457cbadb8e3fb8210e34.jpg" 
+                                             alt="Glass Recycling Guide" 
+                                             class="rounded-lg w-full h-32 object-cover">
+                                        <p class="mt-2 text-sm font-medium">Glass Colors</p>
+                                    </div>
+                                </div>
+                                <div class="mt-4">
+                                    <a href="#" class="text-primary font-medium hover:underline flex items-center">
+                                        <i class="fas fa-images mr-2"></i> View All Infographics
+                                    </a>
+                                </div>
+                            </div>
+                            <div id="faq" class="tab-content">
+                                <h3 class="text-2xl font-bold mb-4 text-primary">Frequently Asked Questions</h3>
+                                <div class="space-y-4">
+                                    <div class="border-b pb-4">
+                                        <h4 class="font-bold text-lg">Can I recycle pizza boxes in Vienna?</h4>
+                                        <p class="text-gray-700">Yes, but only if they're clean. Greasy or food-stained parts should go in residual waste.</p>
+                                    </div>
+                                    <div class="border-b pb-4">
+                                        <h4 class="font-bold text-lg">Where can I dispose of old electronics?</h4>
+                                        <p class="text-gray-700">Electronics can be taken to any of Vienna's 48 Problemstoff-Sammelzentren (hazardous waste collection centers).</p>
+                                    </div>
+                                    <div class="border-b pb-4">
+                                        <h4 class="font-bold text-lg">What plastics are recyclable in Vienna?</h4>
+                                        <p class="text-gray-700">Only plastic bottles (PET) and packaging marked with recycling codes 1, 2, 4, and 5 go in the yellow bins.</p>
+                                    </div>
+                                </div>
+                                <div class="mt-4">
+                                    <a href="#" class="text-primary font-medium hover:underline flex items-center">
+                                        <i class="fas fa-question-circle mr-2"></i> View Full FAQ List
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="md:w-2/5">
+                    <div class="bg-primary text-white rounded-xl p-6 shadow-lg h-full">
+                        <h3 class="text-2xl font-bold mb-4">Quick Waste Sorting Guide</h3>
+                        <ul class="space-y-3">
+                            <li class="flex items-start">
+                                <i class="fas fa-trash-alt mr-3 mt-1"></i>
+                                <div>
+                                    <strong>Residual Waste (Black Bin):</strong> Non-recyclable waste, diapers, cigarette butts
+                                </div>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-recycle mr-3 mt-1"></i>
+                                <div>
+                                    <strong>Yellow Bin/Box:</strong> Plastic packaging, metal, beverage cartons (clean)
+                                </div>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-newspaper mr-3 mt-1"></i>
+                                <div>
+                                    <strong>Paper (Blue Bin):</strong> Newspapers, cardboard, paper packaging
+                                </div>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-wine-glass-alt mr-3 mt-1"></i>
+                                <div>
+                                    <strong>Glass (White/Green Bins):</strong> Glass bottles and jars (separated by color)
+                                </div>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-leaf mr-3 mt-1"></i>
+                                <div>
+                                    <strong>Organic Waste (Brown Bin):</strong> Food scraps, garden waste, biodegradable materials
+                                </div>
+                            </li>
+                        </ul>
+                        <div class="mt-6">
+                            <button onclick="openTab('infographics')" class="bg-accent text-dark px-4 py-2 rounded-lg font-medium hover:bg-opacity-90 transition flex items-center mx-auto">
+                                <i class="fas fa-chart-pie mr-2"></i> Visual Guide
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
-				<!-- Three -->
-					<section id="three" class="wrapper style3 special">
-						<div class="inner">
-							<header class="major">
-								<h2>Accumsan mus tortor nunc aliquet</h2>
-								<p>Aliquam ut ex ut augue consectetur interdum. Donec amet imperdiet eleifend<br />
-								fringilla tincidunt. Nullam dui leo Aenean mi ligula, rhoncus ullamcorper.</p>
-							</header>
-							<ul class="features">
-								<li class="icon fa-paper-plane">
-									<h3>Arcu accumsan</h3>
-									<p>Augue consectetur sed interdum imperdiet et ipsum. Mauris lorem tincidunt nullam amet leo Aenean ligula consequat consequat.</p>
-								</li>
-								<li class="icon solid fa-laptop">
-									<h3>Ac Augue Eget</h3>
-									<p>Augue consectetur sed interdum imperdiet et ipsum. Mauris lorem tincidunt nullam amet leo Aenean ligula consequat consequat.</p>
-								</li>
-								<li class="icon solid fa-code">
-									<h3>Mus Scelerisque</h3>
-									<p>Augue consectetur sed interdum imperdiet et ipsum. Mauris lorem tincidunt nullam amet leo Aenean ligula consequat consequat.</p>
-								</li>
-								<li class="icon solid fa-headphones-alt">
-									<h3>Mauris Imperdiet</h3>
-									<p>Augue consectetur sed interdum imperdiet et ipsum. Mauris lorem tincidunt nullam amet leo Aenean ligula consequat consequat.</p>
-								</li>
-								<li class="icon fa-heart">
-									<h3>Aenean Primis</h3>
-									<p>Augue consectetur sed interdum imperdiet et ipsum. Mauris lorem tincidunt nullam amet leo Aenean ligula consequat consequat.</p>
-								</li>
-								<li class="icon fa-flag">
-									<h3>Tortor Ut</h3>
-									<p>Augue consectetur sed interdum imperdiet et ipsum. Mauris lorem tincidunt nullam amet leo Aenean ligula consequat consequat.</p>
-								</li>
-							</ul>
-						</div>
-					</section>
+    <!-- Interactive Map Section -->
+    <section id="map" class="py-16 bg-gray-50">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 class="text-3xl font-bold text-center mb-4">Recycling Map of Vienna</h2>
+            <p class="text-center text-lg mb-12 max-w-3xl mx-auto">
+                Find the nearest recycling points for different types of waste in your neighborhood
+            </p>
 
-				<!-- CTA -->
-					<section id="cta" class="wrapper style4">
-						<div class="inner">
-							<header>
-								<h2>Arcue ut vel commodo</h2>
-								<p>Aliquam ut ex ut augue consectetur interdum endrerit imperdiet amet eleifend fringilla.</p>
-							</header>
-							<ul class="actions stacked">
-								<li><a href="#" class="button fit primary">Activate</a></li>
-								<li><a href="#" class="button fit">Learn More</a></li>
-							</ul>
-						</div>
-					</section>
+            <div class="bg-white rounded-xl shadow-lg overflow-hidden">
+                <div class="md:flex">
+                    <div class="md:w-1/3 p-6 border-r border-gray-200">
+                        <h3 class="text-xl font-bold mb-4">Filter Recycling Points</h3>
+                        <div class="mb-4">
+                            <label class="block text-gray-700 mb-2">Waste Type</label>
+                            <select class="w-full p-2 border border-gray-300 rounded-lg focus:ring-primary focus:border-primary">
+                                <option>All Types</option>
+                                <option>Plastic</option>
+                                <option>Paper</option>
+                                <option>Glass</option>
+                                <option>Metal</option>
+                                <option>Organic</option>
+                                <option>Hazardous</option>
+                            </select>
+                        </div>
+                        <div class="mb-4">
+                            <label class="block text-gray-700 mb-2">District</label>
+                            <select class="w-full p-2 border border-gray-300 rounded-lg focus:ring-primary focus:border-primary">
+                                <option>All Districts</option>
+                                <option>1010 - Innere Stadt</option>
+                                <option>1020 - Leopoldstadt</option>
+                                <option>1030 - Landstraße</option>
+                                <option>1040 - Wieden</option>
+                                <option>1050 - Margareten</option>
+                                <option>...</option>
+                            </select>
+                        </div>
+                        <div class="mb-4 flex items-center">
+                            <input type="checkbox" id="open-now" class="mr-2">
+                            <label for="open-now">Open Now</label>
+                        </div>
+                        <div class="mb-4">
+                            <label class="block text-gray-700 mb-2">Near Your Location</label>
+                            <button class="w-full bg-primary text-white py-2 rounded-lg hover:bg-secondary transition flex items-center justify-center">
+                                <i class="fas fa-location-arrow mr-2"></i> Use Current Location
+                            </button>
+                        </div>
+                        <div class="mb-4">
+                            <label class="block text-gray-700 mb-2">Search Address</label>
+                            <div class="relative">
+                                <input type="text" placeholder="Enter address..." class="w-full p-2 border border-gray-300 rounded-lg pl-10 focus:ring-primary focus:border-primary">
+                                <i class="fas fa-search absolute left-3 top-3 text-gray-400"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="md:w-2/3">
+                        <div class="p-6">
+                            <h3 class="text-xl font-bold mb-4">Nearby Recycling Points</h3>
+                            <!-- Google Maps Integration -->
+                            <div class="map-container">
+                                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d26599.853479686246!2d16.3563284!3d48.2093532!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x476d0798a998c6ed%3A0x3bcce2d3f5e0d394!2sRecyclinghof%20Rudolf-Bednar-Park!5e0!3m2!1sen!2sat!4v1688822654366!5m2!1sen!2sat" 
+                                        width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
-				<!-- Footer -->
-					<footer id="footer">
-						<ul class="icons">
-							<li><a href="#" class="icon brands fa-twitter"><span class="label">Twitter</span></a></li>
-							<li><a href="#" class="icon brands fa-facebook-f"><span class="label">Facebook</span></a></li>
-							<li><a href="#" class="icon brands fa-instagram"><span class="label">Instagram</span></a></li>
-							<li><a href="#" class="icon brands fa-dribbble"><span class="label">Dribbble</span></a></li>
-							<li><a href="#" class="icon solid fa-envelope"><span class="label">Email</span></a></li>
-						</ul>
-						<ul class="copyright">
-							<li>&copy; Untitled</li><li>Design: <a href="http://html5up.net">HTML5 UP</a></li>
-						</ul>
-					</footer>
+    <!-- Social Media Section -->
+    <section class="py-16 bg-white">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl font-bold mb-2">Join Our Community</h2>
+                <p class="text-lg max-w-2xl mx-auto">
+                    Follow our campaigns, share your recycling wins, and get daily tips for sustainable living in Vienna
+                </p>
+            </div>
+            
+            <div class="bg-light p-6 rounded-xl shadow-md mb-8">
+                <div class="flex items-center justify-between mb-4">
+                    <h3 class="text-xl font-bold">Latest from Instagram</h3>
+                    <a href="#" class="text-primary font-medium hover:underline flex items-center">
+                        <i class="fab fa-instagram mr-2"></i> Follow @RecycleRightVienna
+                    </a>
+                </div>
+                <div class="social-feed overflow-x-auto flex gap-4 pb-2">
+                    <div class="flex-shrink-0 w-64">
+                        <div class="bg-white rounded-lg overflow-hidden shadow">
+                            <img src="https://images.unsplash.com/photo-1587297232721-9a3c2a3a5f28?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=880&q=80" alt="Instagram post" class="w-full h-48 object-cover">
+                            <div class="p-3">
+                                <div class="text-sm mb-2">"This week's recycling challenge: compost! Show us your organic waste solutions 🍃 #ViennaRecycles"</div>
+                                <div class="flex justify-between text-xs text-gray-500">
+                                    <span><i class="far fa-heart mr-1"></i> 243</span>
+                                    <span>2 days ago</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="flex-shrink-0 w-64">
+                        <div class="bg-white rounded-lg overflow-hidden shadow">
+                            <img src="https://images.unsplash.com/photo-1584974296943-fa8d5e733d9c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=870&q=80" alt="Instagram post" class="w-full h-48 object-cover">
+                            <div class="p-3">
+                                <div class="text-sm mb-2">"Meet our volunteer team cleaning up Donaukanal last weekend! 💚 #CleanVienna"</div>
+                                <div class="flex justify-between text-xs text-gray-500">
+                                    <span><i class="far fa-heart mr-1"></i> 187</span>
+                                    <span>4 days ago</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="flex-shrink-0 w-64">
+                        <div class="bg-white rounded-lg overflow-hidden shadow">
+                            <img src="https://images.unsplash.com/photo-1542601906990-b4d3b778457b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=774&q=80" alt="Instagram post" class="w-full h-48 object-cover">
+                            <div class="p-3">
+                                <div class="text-sm mb-2">"Did you know? Vienna recycles 72% of its glass bottles! Our guide to glass recycling is now linked in bio."</div>
+                                <div class="flex justify-between text-xs text-gray-500">
+                                    <span><i class="far fa-heart mr-1"></i> 156</span>
+                                    <span>1 week ago</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="flex-shrink-0 w-64">
+                        <div class="bg-white rounded-lg overflow-hidden shadow">
+                            <img src="https://images.unsplash.com/photo-1556905056-d6585f3b8f11?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=870&q=80" alt="Instagram post" class="w-full h-48 object-cover">
+                            <div class="p-3">
+                                <div class="text-sm mb-2">"When in doubt, check it out! Our team answers your recycling questions every Friday."</div>
+                                <div class="flex justify-between text-xs text-gray-500">
+                                    <span><i class="far fa-heart mr-1"></i> 132</span>
+                                    <span>1 week ago</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="bg-light p-6 rounded-xl shadow-md">
+                <div class="flex items-center justify-between mb-4">
+                    <h3 class="text-xl font-bold">Facebook Community</h3>
+                    <a href="#" class="text-primary font-medium hover:underline flex items-center">
+                        <i class="fab fa-facebook mr-2"></i> Join Our Group
+                    </a>
+                </div>
+                <div class="grid md:grid-cols-2 gap-6">
+                    <div class="bg-white p-4 rounded-lg shadow">
+                        <div class="flex items-center mb-3">
+                            <img src="https://randomuser.me/api/portraits/women/65.jpg" alt="User" class="w-10 h-10 rounded-full mr-3">
+                            <div>
+                                <h4 class="font-bold">Sarah M.</h4>
+                                <div class="text-xs text-gray-500">Expats in Vienna</div>
+                            </div>
+                        </div>
+                        <p class="text-sm mb-3">"The English recycling guide saved me so much confusion! Finally understand what goes where."</p>
+                        <div class="flex justify-between text-xs text-gray-500">
+                            <span><i class="far fa-thumbs-up mr-1"></i> 17</span>
+                            <span>3 days ago</span>
+                        </div>
+                    </div>
+                    <div class="bg-white p-4 rounded-lg shadow">
+                        <div class="flex items-center mb-3">
+                            <img src="https://randomuser.me/api/portraits/men/45.jpg" alt="User" class="w-10 h-10 rounded-full mr-3">
+                            <div>
+                                <h4 class="font-bold">Thomas K.</h4>
+                                <div class="text-xs text-gray-500">Eco Vienna</div>
+                            </div>
+                        </div>
+                        <p class="text-sm mb-3">"Organized a building workshop based on your materials - our recycling improved by 60%!"</p>
+                        <div class="flex justify-between text-xs text-gray-500">
+                            <span><i class="far fa-thumbs-up mr-1"></i> 23</span>
+                            <span>1 week ago</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
-			</div>
+    <!-- Target Audience Section -->
+    <section id="target" class="py-16 bg-primary text-white">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 class="text-3xl font-bold text-center mb-2">Targeted Information</h2>
+            <p class="text-center text-lg mb-12 max-w-3xl mx-auto">
+                Find resources and opportunities tailored to your situation
+            </p>
+            
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div class="bg-white text-dark rounded-xl p-6 shadow-lg hover:shadow-xl transition">
+                    <div class="text-accent mb-4">
+                        <i class="fas fa-globe-americas text-4xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">For Expats</h3>
+                    <p class="mb-4">Special guides comparing waste systems from common home countries to Vienna's practices.</p>
+                    <ul class="space-y-2 mb-4">
+                        <li class="flex items-center">
+                            <i class="fas fa-check-circle text-accent mr-2"></i>
+                            Language-specific resources
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-check-circle text-accent mr-2"></i>
+                            Cultural adjustment tips
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-check-circle text-accent mr-2"></i>
+                            International community events
+                        </li>
+                    </ul>
+                    <a href="#" class="inline-block bg-accent text-dark px-4 py-2 rounded-lg font-medium hover:bg-opacity-90 transition">
+                        Explore Resources
+                    </a>
+                </div>
+                <div class="bg-white text-dark rounded-xl p-6 shadow-lg hover:shadow-xl transition">
+                    <div class="text-accent mb-4">
+                        <i class="fas fa-school text-4xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">For Schools</h3>
+                    <p class="mb-4">Educational programs and workshops to teach students about sustainability and waste management.</p>
+                    <ul class="space-y-2 mb-4">
+                        <li class="flex items-center">
+                            <i class="fas fa-check-circle text-accent mr-2"></i>
+                            Classroom materials
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-check-circle text-accent mr-2"></i>
+                            Field trip opportunities
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-check-circle text-accent mr-2"></i>
+                            Recycling competitions
+                        </li>
+                    </ul>
+                    <a href="#" class="inline-block bg-accent text-dark px-4 py-2 rounded-lg font-medium hover:bg-opacity-90 transition">
+                        Book a Workshop
+                    </a>
+                </div>
+                <div class="bg-white text-dark rounded-xl p-6 shadow-lg hover:shadow-xl transition">
+                    <div class="text-accent mb-4">
+                        <i class="fas fa-users text-4xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">For Organizations</h3>
+                    <p class="mb-4">Partnership opportunities, corporate sustainability programs, and bulk waste solutions.</p>
+                    <ul class="space-y-2 mb-4">
+                        <li class="flex items-center">
+                            <i class="fas fa-check-circle text-accent mr-2"></i>
+                            Training for staff
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-check-circle text-accent mr-2"></i>
+                            Waste audits
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-check-circle text-accent mr-2"></i>
+                            Co-branding options
+                        </li>
+                    </ul>
+                    <a href="#" class="inline-block bg-accent text-dark px-4 py-2 rounded-lg font-medium hover:bg-opacity-90 transition">
+                        Partner With Us
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
 
-		<!-- Scripts -->
-			<script src="assets/js/jquery.min.js"></script>
-			<script src="assets/js/jquery.scrollex.min.js"></script>
-			<script src="assets/js/jquery.scrolly.min.js"></script>
-			<script src="assets/js/browser.min.js"></script>
-			<script src="assets/js/breakpoints.min.js"></script>
-			<script src="assets/js/util.js"></script>
-			<script src="assets/js/main.js"></script>
+    <!-- Volunteering CTA -->
+    <section class="py-16 bg-secondary text-white">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="md:flex md:items-center md:justify-between">
+                <div class="md:w-2/3 mb-8 md:mb-0">
+                    <h2 class="text-3xl font-bold mb-4">Become a Recycling Ambassador</h2>
+                    <p class="text-xl mb-6 leading-relaxed">
+                        Join our volunteer network to help spread awareness and improve recycling in your community!
+                    </p>
+                    <ul class="space-y-3 mb-6">
+                        <li class="flex items-start">
+                            <i class="fas fa-check-circle text-accent mr-3 mt-1"></i>
+                            <div>Training sessions on Vienna's waste system</div>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check-circle text-accent mr-3 mt-1"></i>
+                            <div>Resources to educate your neighbors</div>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check-circle text-accent mr-3 mt-1"></i>
+                            <div>Community events and networking opportunities</div>
+                        </li>
+                    </ul>
+                </div>
+                <div class="md:w-1/3 flex justify-center">
+                    <div class="bg-white text-dark rounded-xl p-6 shadow-lg w-full max-w-xs">
+                        <h3 class="text-xl font-bold mb-4 text-center">Sign Up to Volunteer</h3>
+                        <form>
+                            <div class="mb-4">
+                                <input type="text" placeholder="Your Name" class="w-full p-2 border border-gray-300 rounded-lg">
+                            </div>
+                            <div class="mb-4">
+                                <input type="email" placeholder="Email Address" class="w-full p-2 border border-gray-300 rounded-lg">
+                            </div>
+                            <div class="mb-4">
+                                <select class="w-full p-2 border border-gray-300 rounded-lg">
+                                    <option>Select District</option>
+                                    <option>All Vienna</option>
+                                    <option>1010 - Innere Stadt</option>
+                                    <option>1020 - Leopoldstadt</option>
+                                    <option>Other Districts</option>
+                                </select>
+                            </div>
+                            <div class="mb-4">
+                                <textarea placeholder="Why are you interested?" class="w-full p-2 border border-gray-300 rounded-lg"></textarea>
+                            </div>
+                            <button type="submit" class="w-full bg-primary text-white py-2 rounded-lg hover:bg-opacity-90 transition">
+                                Submit Application
+                            </button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
-	</body>
+    <!-- Contact Section -->
+    <section id="contact" class="py-16 bg-white">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 class="text-3xl font-bold text-center mb-2">Get in Touch</h2>
+            <p class="text-center text-lg mb-12 max-w-3xl mx-auto">
+                Have questions, suggestions, or want to collaborate? We'd love to hear from you!
+            </p>
+            
+            <div class="grid md:grid-cols-2 gap-12">
+                <div>
+                    <div class="bg-light rounded-xl p-8 shadow-lg">
+                        <h3 class="text-2xl font-bold mb-6">Contact Form</h3>
+                        <form>
+                            <div class="mb-4">
+                                <label class="block text-gray-700 mb-2">Name</label>
+                                <input type="text" class="w-full p-3 border border-gray-300 rounded-lg focus:ring-primary focus:border-primary">
+                            </div>
+                            <div class="mb-4">
+                                <label class="block text-gray-700 mb-2">Email</label>
+                                <input type="email" class="w-full p-3 border border-gray-300 rounded-lg focus:ring-primary focus:border-primary">
+                            </div>
+                            <div class="mb-4">
+                                <label class="block text-gray-700 mb-2">Subject</label>
+                                <select class="w-full p-3 border border-gray-300 rounded-lg focus:ring-primary focus:border-primary">
+                                    <option>General Inquiry</option>
+                                    <option>Partnership Opportunity</option>
+                                    <option>Volunteer Inquiry</option>
+                                    <option>School Program</option>
+                                    <option>Feedback/Suggestion</option>
+                                </select>
+                            </div>
+                            <div class="mb-4">
+                                <label class="block text-gray-700 mb-2">Message</label>
+                                <textarea rows="5" class="w-full p-3 border border-gray-300 rounded-lg focus:ring-primary focus:border-primary"></textarea>
+                            </div>
+                            <button type="submit" class="w-full bg-primary text-white py-3 rounded-lg hover:bg-secondary transition font-medium">
+                                Send Message
+                            </button>
+                        </form>
+                    </div>
+                </div>
+                <div>
+                    <div class="bg-light rounded-xl p-8 shadow-lg h-full">
+                        <h3 class="text-2xl font-bold mb-6">Other Ways to Connect</h3>
+                        <div class="space-y-6">
+                            <div class="flex items-start">
+                                <div class="text-primary mr-4">
+                                    <i class="fas fa-envelope text-3xl"></i>
+                                </div>
+                                <div>
+                                    <h4 class="text-lg font-bold mb-1">Email Us</h4>
+                                    <a href="mailto:info@recyclerightvienna.at" class="text-gray-700 hover:text-primary">info@recyclerightvienna.at</a>
+                                    <p class="text-sm text-gray-500 mt-1">Typically respond within 2 business days</p>
+                                </div>
+                            </div>
+                            <div class="flex items-start">
+                                <div class="text-primary mr-4">
+                                    <i class="fas fa-phone-alt text-3xl"></i>
+                                </div>
+                                <div>
+                                    <h4 class="text-lg font-bold mb-1">Call Us</h4>
+                                    <a href="tel:+4311234567" class="text-gray-700 hover:text-primary">+43 1 123 4567</a>
+                                    <p class="text-sm text-gray-500 mt-1">Mon-Fri, 9:00-17:00</p>
+                                </div>
+                            </div>
+                            <div class="flex items-start">
+                                <div class="text-primary mr-4">
+                                    <i class="fas fa-map-marker-alt text-3xl"></i>
+                                </div>
+                                <div>
+                                    <h4 class="text-lg font-bold mb-1">Visit Us</h4>
+                                    <p class="text-gray-700">RecyclingHub Vienna<br>Lindengasse 56/18-19<br>1070 Wien</p>
+                                    <p class="text-sm text-gray-500 mt-1">Open by appointment only</p>
+                                </div>
+                            </div>
+                            <div class="border-t border-gray-300 pt-6">
+                                <h4 class="text-lg font-bold mb-4">Follow Us</h4>
+                                <div class="flex space-x-4">
+                                    <a href="#" class="w-12 h-12 bg-primary text-white rounded-full flex items-center justify-center hover:bg-secondary transition">
+                                        <i class="fab fa-facebook-f text-xl"></i>
+                                    </a>
+                                    <a href="#" class="w-12 h-12 bg-primary text-white rounded-full flex items-center justify-center hover:bg-secondary transition">
+                                        <i class="fab fa-instagram text-xl"></i>
+                                    </a>
+                                    <a href="#" class="w-12 h-12 bg-primary text-white rounded-full flex items-center justify-center hover:bg-secondary transition">
+                                        <i class="fab fa-twitter text-xl"></i>
+                                    </a>
+                                    <a href="#" class="w-12 h-12 bg-primary text-white rounded-full flex items-center justify-center hover:bg-secondary transition">
+                                        <i class="fab fa-youtube text-xl"></i>
+                                    </a>
+                                    <a href="#" class="w-12 h-12 bg-primary text-white rounded-full flex items-center justify-center hover:bg-secondary transition">
+                                        <i class="fab fa-linkedin-in text-xl"></i>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Newsletter -->
+    <section class="py-16 bg-gray-50">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="bg-white rounded-xl shadow-lg overflow-hidden md:flex">
+                <div class="md:w-1/2 bg-primary text-white p-8 flex items-center justify-center">
+                    <div>
+                        <h3 class="text-2xl font-bold mb-2">Stay Updated</h3>
+                        <p class="mb-4">Join our monthly newsletter for recycling news, tips, and event invites</p>
+                        <div class="flex space-x-4">
+                            <i class="fas fa-leaf text-2xl"></i>
+                            <i class="fas fa-recycle text-2xl"></i>
+                            <i class="fas fa-globe-europe text-2xl"></i>
+                        </div>
+                    </div>
+                </div>
+                <div class="md:w-1/2 p-8">
+                    <form>
+                        <div class="mb-4">
+                            <input type="text" placeholder="Your Name" class="w-full p-3 border border-gray-300 rounded-lg focus:ring-primary focus:border-primary">
+                        </div>
+                        <div class="mb-4">
+                            <input type="email" placeholder="Email Address" class="w-full p-3 border border-gray-300 rounded-lg focus:ring-primary focus:border-primary">
+                        </div>
+                        <div class="mb-4 flex items-center">
+                            <input type="checkbox" id="consent" class="mr-2">
+                            <label for="consent" class="text-sm">I agree to receive emails from Recycle Right Vienna</label>
+                        </div>
+                        <button type="submit" class="w-full bg-primary text-white py-3 rounded-lg hover:bg-secondary transition font-medium">
+                            Subscribe Now
+                        </button>
+                        <p class="text-xs text-gray-500 mt-2">We respect your privacy. Unsubscribe at any time.</p>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-dark text-white py-12 px-4">
+        <div class="max-w-6xl mx-auto">
+            <div class="grid md:grid-cols-4 gap-8">
+                <div>
+                    <div class="flex items-center mb-4">
+                        <i class="fas fa-recycle text-primary text-2xl mr-2"></i>
+                        <span class="text-xl font-bold text-primary">RecycleRightVienna</span>
+                    </div>
+                    <p class="mb-4">Making Vienna's waste system accessible to everyone, in every language.</p>
+                    <div class="flex space-x-3">
+                        <a href="#" class="text-gray-400 hover:text-primary"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="text-gray-400 hover:text-primary"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="text-gray-400 hover:text-primary"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="text-gray-400 hover:text-primary"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+                <div>
+                    <h4 class="text-lg font-bold mb-4">Quick Links</h4>
+                    <ul class="space-y-2">
+                        <li><a href="#home" class="hover:text-primary transition">Home</a></li>
+                        <li><a href="#about" class="hover:text-primary transition">About Project</a></li>
+                        <li><a href="#resources" class="hover:text-primary transition">Resources</a></li>
+                        <li><a href="#map" class="hover:text-primary transition">Recycling Map</a></li>
+                        <li><a href="#target" class="hover:text-primary transition">For You</a></li>
+                        <li><a href="#contact" class="hover:text-primary transition">Contact</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="text-lg font-bold mb-4">Resources</h4>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="hover:text-primary transition">Download Guide</a></li>
+                        <li><a href="#" class="hover:text-primary transition">Infographics</a></li>
+                        <li><a href="#" class="hover:text-primary transition">FAQ</a></li>
+                        <li><a href="#" class="hover:text-primary transition">Blog</a></li>
+                        <li><a href="#" class="hover:text-primary transition">Newsletter</a></li>
+                        <li><a href="#" class="hover:text-primary transition">Press Kit</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="text-lg font-bold mb-4">Partners</h4>
+                    <div class="grid grid-cols-2 gap-4">
+                        <div class="bg-white p-3 rounded-lg flex items-center justify-center h-16">
+                            <span class="text-dark font-bold text-sm">City of Vienna</span>
+                        </div>
+                        <div class="bg-white p-3 rounded-lg flex items-center justify-center h-16">
+                            <span class="text-dark font-bold text-sm">MA48</span>
+                        </div>
+                        <div class="bg-white p-3 rounded-lg flex items-center justify-center h-16">
+                            <span class="text-dark font-bold text-sm">Greenpeace AT</span>
+                        </div>
+                        <div class="bg-white p-3 rounded-lg flex items-center justify-center h-16">
+                            <span class="text-dark font-bold text-sm">Expats Vienna</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="border-t border-gray-700 mt-12 pt-8 text-sm text-gray-400">
+                <div class="flex flex-col md:flex-row justify-between items-center">
+                    <div class="mb-4 md:mb-0">
+                        &copy; 2023 Recycle Right Vienna. All rights reserved.
+                    </div>
+                    <div class="flex space-x-4">
+                        <a href="#" class="hover:text-primary transition">Privacy Policy</a>
+                        <a href="#" class="hover:text-primary transition">Terms of Service</a>
+                        <a href="#" class="hover:text-primary transition">Cookie Policy</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile menu toggle
+        document.getElementById('mobile-menu-button').addEventListener('click', function() {
+            const menu = document.getElementById('mobile-menu');
+            menu.classList.toggle('hidden');
+        });
+
+        // Close mobile menu when clicking a link
+        const mobileLinks = document.querySelectorAll('#mobile-menu a');
+        mobileLinks.forEach(link => {
+            link.addEventListener('click', function() {
+                document.getElementById('mobile-menu').classList.add('hidden');
+            });
+        });
+
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                if (targetId === '#') return;
+                
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    const headerHeight = document.querySelector('nav').offsetHeight;
+                    const targetPosition = targetElement.getBoundingClientRect().top + window.pageYOffset - headerHeight;
+                    
+                    window.scrollTo({
+                        top: targetPosition,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+
+        // Tab functionality for resources section
+        function openTab(tabName) {
+            const tabContents = document.getElementsByClassName('tab-content');
+            for (let i = 0; i < tabContents.length; i++) {
+                tabContents[i].classList.remove('active');
+            }
+            
+            const tabButtons = document.getElementsByClassName('tab-button');
+            for (let i = 0; i < tabButtons.length; i++) {
+                tabButtons[i].classList.remove('active');
+                tabButtons[i].classList.add('bg-gray-200', 'hover:bg-gray-300');
+                tabButtons[i].classList.remove('bg-primary', 'text-white');
+            }
+            
+            document.getElementById(tabName).classList.add('active');
+            event.currentTarget.classList.add('active', 'bg-primary', 'text-white');
+            event.currentTarget.classList.remove('bg-gray-200', 'hover:bg-gray-300');
+        }
+
+        // Simple form submission handling (would be replaced with actual form handling in production)
+        document.querySelectorAll('form').forEach(form => {
+            form.addEventListener('submit', function(e) {
+                e.preventDefault();
+                alert('Thank you for your submission! In a real application, this would send the data to a server.');
+            });
+        });
+
+        // Scroll animations
+        window.addEventListener('scroll', function() {
+            const scrollPosition = window.scrollY;
+            
+            // Add any scroll-based animations here if needed
+        });
+    </script>
+</body>
 </html>
